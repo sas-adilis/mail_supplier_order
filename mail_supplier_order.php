@@ -1,9 +1,9 @@
 <?php
 
 require_once __DIR__ . '/classes/HTMLTemplateDeliverySlipSupplier.php';
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class Mail_Supplier_Order extends \Module {
-
 
     function __construct()
     {
@@ -204,7 +204,6 @@ class Mail_Supplier_Order extends \Module {
         ));
     }
     public function hookDisplayAdminOrderMainBottom($params) {
-        $this->context->controller->errors[] = $this->l('Invalid supplier');
         $order = new \Order((int)$params['id_order']);
         if (!Validate::isLoadedObject($order)) {
             return;
