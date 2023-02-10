@@ -1,0 +1,108 @@
+$icon-size-base: 14px;
+
+.icon {
+
+}
+// radius
+@mixin border-top-left-radius($radius) {
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-top-right-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-bottom-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border-right-radius($radius) {
+  @include border-top-right-radius($radius);
+  @include border-bottom-right-radius($radius);
+}
+
+@mixin left($distance) {
+  left: $distance;
+}
+
+@mixin right($distance) {
+  right: $distance;
+}
+
+@mixin border-left-radius($radius) {
+  @include border-top-left-radius($radius);
+  @include border-bottom-left-radius($radius);
+}
+
+@mixin border-top-radius($radius) {
+  @include border-top-left-radius($radius);
+  @include border-top-right-radius($radius);
+}
+
+@mixin border-bottom-radius($radius) {
+  @include border-bottom-left-radius($radius);
+  @include border-bottom-right-radius($radius);
+}
+
+@mixin border-radius($topLeft, $topRight: null, $bottomRight: null, $bottomLeft: null) {
+  @if $topRight != null {
+    @include border-top-left-radius($topLeft);
+    @include border-top-right-radius($topRight);
+    @include border-bottom-right-radius($bottomRight);
+    @include border-bottom-left-radius($bottomLeft);
+  } @else {
+    -webkit-border-radius: $topLeft;
+    border-radius: $topLeft;
+  }
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+  box-shadow: $shadow;
+}
+
+@mixin margin-left($distance) {
+  margin-left: $distance;
+}
+
+@mixin margin-right($distance) {
+  margin-right: $distance;
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+  margin: $top, $right, $bottom, $left;
+}
+
+@mixin padding-left($distance) {
+  padding-left: $distance;
+}
+
+@mixin padding-right($distance) {
+  padding-right: $distance;
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+  padding: $top, $right, $bottom, $left;
+}
+
+// generic
+@mixin border-left($border-style) {
+  border-left: $border-style;
+}
+
+@mixin border-right($border-style) {
+  border-right: $border-style;
+}
+
+
+@mixin text-align($direction) {
+  text-align: $direction;
+}
