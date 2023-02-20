@@ -31,13 +31,14 @@ class Mail_Supplier_Order extends \Module {
             $this->registerHook('actionAdminControllerSetMedia') &&
             $this->registerHook('actionSupplierFormBuilderModifier') &&
             $this->registerHook('actionAfterCreateSupplierFormHandler') &&
-            $this->registerHook('actionAfterUpdateSupplierFormHandler')
+            $this->registerHook('actionAfterUpdateSupplierFormHandler') &&
+            $this->registerHook('backOfficeHeader')
         ;
     }
 
 
-    public function getContent() {
-        if (Tools::getValue('action') == 'downloadDeliverySlip') {
+    public function hookBackOfficeHeader($params) {
+        if (Tools::isSubmit('submitDownloadDeliverySlip')) {
             $order = new Order(Tools::getValue('mso_id_order'));
             $invoices = [];
             foreach ($order->getInvoicesCollection() as $invoice) {
@@ -88,13 +89,12 @@ class Mail_Supplier_Order extends \Module {
                     'mime' => 'application/pdf'
                 ];
 
-
                 if (!@MailCore::send(
                     $this->context->language->id,
                     'mail_supplier_order',
                     $subject,
                     ['{content}' => $content],
-                    'contact@adilis.fr',//$to,
+                    $to,
                     $supplier->name,
                     null,
                     null,
@@ -105,9 +105,14 @@ class Mail_Supplier_Order extends \Module {
                     $this->context->controller->errors[] = $this->l('An error occurred while sending the email.');
                 }
 
+                $flash_bag = $this->context->controller->get('session')->getFlashBag();
+                $flash_bag->add('success', $this->l('Email sent successfully'));
+                Tools::redirectAdmin(self::getCurrentUrl());
             }
         }
+    }
 
+    public function getContent() {
         $this->context->controller->informations[] = sprintf(
             $this->l('You can use the following tags to personalize your email : %s'),
             implode(', ', [
@@ -271,10 +276,14 @@ class Mail_Supplier_Order extends \Module {
             'iso' => file_exists(_PS_CORE_DIR_ . '/js/tiny_mce/langs/' . $iso . '.js') ? $iso : 'en',
             'path_css' => _THEME_CSS_DIR_,
             'ad' => __PS_BASE_URI__ . basename(_PS_ADMIN_DIR_),
-            'module_config_url' => $this->context->link->getAdminLink('AdminModules', true, [], ['configure' => $this->name]),
+            'form_action' => static::getCurrentUrl(),
         ));
 
 		return $this->context->smarty->fetch($this->getLocalPath().'views/templates/hook/admin_order_main_bottom.tpl');
+    }
+
+    private static function getCurrentUrl() {
+        return $_SERVER['REQUEST_URI'];
     }
 
     public function hookActionAdminControllerSetMedia($params)

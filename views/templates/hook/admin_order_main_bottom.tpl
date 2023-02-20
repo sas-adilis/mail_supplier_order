@@ -16,7 +16,7 @@
                 </div>
                 <div class="modal fade" id="mailSupplierPopup{$supplier.id_supplier}" tabindex="-1" role="dialog" aria-labelledby="mailSupplierPopupLabel{$supplier.id_supplier}" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
-                        <form action="{$module_config_url}" method="post">
+                        <form action="{$form_action}" method="post">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="mailSupplierPopupLabel{$supplier.id_supplier}">{l s='Mail Options' mod='mail_supplier_order'}</h5>
@@ -47,11 +47,9 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                         <div class="form-group">
                                             <label class="mso_content_{$supplier.id_supplier|intval}">{l s='Mail content' mod='mail_supplier_order'}</label>
-                                            <textarea id="mso_content_{$supplier.id_supplier|intval}" name="mso_content" class="autoload_rte form-control">{$supplier.mail_content}</textarea>
+                                            <textarea id="mso_content_{$supplier.id_supplier|intval}" name="mso_content" class="autoload_rte_{$supplier.id_supplier|intval} form-control">{$supplier.mail_content}</textarea>
                                         </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
@@ -59,7 +57,7 @@
                                         <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">{l s='Close' mod='mail_supplier_order'}</button>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="{$module_config_url}&action=downloadDeliverySlip&mso_id_order={$id_order|intval}&mso_id_supplier={$supplier.id_supplier|intval}" class="btn btn-outline-secondary">{l s='Download delivery slip' mod='mail_supplier_order'}</a>
+                                        <button type="submit" name="submitDownloadDeliverySlip" class="btn btn-outline-secondary">{l s='Download delivery slip' mod='mail_supplier_order'}</button>
                                         <button type="submit" name="submitSendMail" class="btn btn-primary">{l s='Send email' mod='mail_supplier_order'}</button>
                                     </div>
                                 </div>
@@ -69,6 +67,17 @@
                 </div>
 
             </div>
+            <script type="text/javascript">
+                {literal}
+                $(document).ready(function(){
+                    $('#mailSupplierPopup{/literal}{$supplier.id_supplier}{literal}').on('shown.bs.modal', function () {
+                        tinySetup({
+                            editor_selector :"autoload_rte_{/literal}{$supplier.id_supplier|intval}{literal}",
+                        });
+                    })
+                });
+                {/literal}
+            </script>
         {/foreach}
     </div>
 </div>
@@ -76,11 +85,4 @@
     const iso = '{$iso|addslashes}';
     const pathCSS = '{$smarty.const._THEME_CSS_DIR_|addslashes}';
     const ad = '{$ad|addslashes}';
-
-    $(document).ready(function(){
-        tinySetup({
-            editor_selector :"autoload_rte",
-            resize      : true,   // Good, it is set right :)
-        });
-    });
 </script>
