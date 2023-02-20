@@ -1,0 +1,31 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_d150cd2ae465b05f28c70e45d5e5b51a'] = 'Envoyer la commande aux fournisseur par email';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_000c7e9f9b5d503e83bce3844659eccd'] = 'Permet d\'envoyer les commandes aux fournisseurs par e-mail';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_7f21929facecdc63d506d8850b19f088'] = 'Sujet invalide';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_3ee0c881516fce384747e3107dbfc538'] = 'Contenu invalide';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_681c7d68f4df5cdfbe3e1a29d22c275a'] = 'Email invalide';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_eed2c19d400d3fa7311bc0ef19ddb980'] = 'Fournisseur invalide';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_6e2fc94479ac0c63543886a235e3370c'] = 'Une erreur s\'est produite lors de l\'envoi de l\'e-mail.';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_694ae897645ed4f6c18dd496f0916e2d'] = 'E-mail envoyé avec succès';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_88860f0d96eb53d0ee0040200a900a4c'] = 'Vous pouvez utiliser les balises suivantes pour personnaliser votre e-mail : %s';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_7507729fd86157f8c6c06b36b11c9b92'] = 'Configuration de l\'email par défaut';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_a73d6de793fdfa05ae0c8abc1e7e1a83'] = 'Sujet de l\'email';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_119ca488ab13c37c1d7c8ebf68a548d1'] = 'Contenu de l\'email';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_c9cc8cce247e49bae79f15173ce97354'] = 'Enregistrer';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_dacdd4032969a9f8b5422c3d55ae49ee'] = 'Activer les e-mails pour ce fournisseur';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_bafd7322c6e97d25b6299b5d6fe8920b'] = 'Non';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_93cba07454f06a4a960172bbd6e2a435'] = 'Oui';
+$_MODULE['<{mail_supplier_order}prestashop>mail_supplier_order_cfabcd5a74b0e85c99fb5694c5aa3936'] = 'Activer les e-mails pour ce fournisseur';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_1e934a7ca0994dd5bf12dbbc53401d1c'] = 'Mails pour les fournisseurs';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_aff21a647af77e45cd5e810852085a66'] = 'produit(s) de ce fournisseur';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_6c444810870d4db1769f803f0caaeeff'] = 'Envoyer un email';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_f6c13995b61ad8ebc9131833f781d427'] = 'Options de l\'email';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_a73d6de793fdfa05ae0c8abc1e7e1a83'] = 'Sujet de l\'email';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_2c07548e9b0108338d368a153b64094e'] = 'Mail du fournisseur';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_119ca488ab13c37c1d7c8ebf68a548d1'] = 'Contenu de l\'email';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_d3d2e617335f08df83599665eef8a418'] = 'Fermer';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_7a1ca95f6acacf166e34024f939aa2f7'] = 'Télécharger le bon de livraison';
+$_MODULE['<{mail_supplier_order}prestashop>admin_order_main_bottom_fa27c9d4b1546ca63480440c34026270'] = 'Envoyer l\'email';

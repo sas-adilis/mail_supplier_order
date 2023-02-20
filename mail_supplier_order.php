@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/classes/HTMLTemplateDeliverySlipSupplier.php';
-use Symfony\Component\HttpFoundation\RequestStack;
 
 class Mail_Supplier_Order extends \Module {
 
@@ -13,8 +12,8 @@ class Mail_Supplier_Order extends \Module {
         $this->bootstrap = true;
         $this->tab = 'administration';
         $this->version = '1.0.0';
-        $this->displayName = $this->l('Envoi de commande fournisseur');
-        $this->description = $this->l('Permet d\'envoyer les commandes fournisseur par mail');
+        $this->displayName = $this->l('Send supplier order by email');
+        $this->description = $this->l('Allows supplier orders to be sent by email');
         parent::__construct();
     }
 
@@ -304,7 +303,7 @@ class Mail_Supplier_Order extends \Module {
             'active_mail',
             \PrestaShopBundle\Form\Admin\Type\SwitchType::class,
             [
-                'label' => $this->l('Activer les mails pour ce fournisseur'), //Label du champ
+                'label' => $this->l('Enable emails for this supplier'),
                 'choices' => [
                     $this->l('No') => 0,
                     $this->l('Yes') => 1,
@@ -316,7 +315,7 @@ class Mail_Supplier_Order extends \Module {
             'email',
             \Symfony\Component\Form\Extension\Core\Type\TextType::class,
             [
-                'label' => $this->l('Email du service commande'), //Label du champ
+                'label' => $this->l('Order department email'),
                 'required' => false
             ]
         );
