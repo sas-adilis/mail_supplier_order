@@ -237,6 +237,30 @@ class Mail_Supplier_Order extends \Module {
                 unset($suppliers[$i]);
             } else {
                 $suppliers[$i]['mail_subject'] = Configuration::get('MSO_DEFAULT_SUBJECT', $order->id_lang);
+
+                $suppliers[$i]['mail_subject'] = str_replace(
+                    [
+                        '{CARRIER_NAME}',
+                        '{CUSTOMER_EMAIL}',
+                        '{CUSTOMER_NAME}',
+                        '{CUSTOMER_PHONE}',
+                        '{INVOICE_NUMBER}',
+                        '{ORDER_DATE}',
+                        '{ORDER_ID}',
+                        '{ORDER_INFO}',
+                        '{ORDER_REF}',
+                    ], [
+                    '',
+                    $customer->email,
+                    $customer->firstname . ' ' . $customer->lastname,
+                    $address->mobile_phone ?: $address->phone,
+                    $order->invoice_number,
+                    Tools::displayDate($order->date_add, $order->id_lang),
+                    $order->id,
+                    $order->note,
+                    $order->reference,
+                ], $suppliers[$i]['mail_subject']);
+
                 $suppliers[$i]['mail_content'] = Configuration::get('MSO_DEFAULT_CONTENT', $order->id_lang);
 
                 $suppliers[$i]['mail_content'] = str_replace(
