@@ -19,7 +19,7 @@
                     <td>
                         <strong>{$product['product_name']}</strong>
                         {if isset($product['product_reference']) && $product['product_reference'] != ''}
-                            <br/>Référence : {$product['product_reference']}
+                            <br/>Référence : {$product['product_supplier_reference']}
                         {/if}
                         {hook h='displayProductMailSupplierOrder' product=$product}
                 </td>

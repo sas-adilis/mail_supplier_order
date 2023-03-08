@@ -302,7 +302,7 @@ class Mail_Supplier_Order extends \Module {
             'form_action' => static::getCurrentUrl(),
         ));
 
-		return $this->context->smarty->fetch($this->getLocalPath().'views/templates/hook/admin_order_main_bottom.tpl');
+        return $this->display(__FILE__, 'views/templates/hook/admin_order_main_bottom.tpl');
     }
 
     private static function getCurrentUrl() {
@@ -382,6 +382,6 @@ class Mail_Supplier_Order extends \Module {
         $this->context->smarty->assign(array(
             'products' => $products,
         ));
-        return $this->context->smarty->fetch($this->getLocalPath().'mails/_partials/product_list.tpl');
+        return $this->display(__FILE__, 'mails/_partials/product_list.tpl');
     }
 }

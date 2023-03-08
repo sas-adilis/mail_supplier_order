@@ -14,7 +14,7 @@
                         <i class="fa fa-envelope"></i> {l s='Send mail' mod='mail_supplier_order'}
                     </a>
                 </div>
-                <div class="modal fade" id="mailSupplierPopup{$supplier.id_supplier}" tabindex="-1" role="dialog" aria-labelledby="mailSupplierPopupLabel{$supplier.id_supplier}" aria-hidden="true">
+                <div class="modal fade mailSupplierPopup" id="mailSupplierPopup{$supplier.id_supplier}" tabindex="-1" role="dialog" aria-labelledby="mailSupplierPopupLabel{$supplier.id_supplier}" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <form action="{$form_action}" method="post">
                             <div class="modal-content">
